@@ -1,35 +1,53 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-a,
-.green {
+:root {
+  --primary: hsl(200, 70%, 50%);
+  --secondary: hsl(160, 0%, 60%);
+  --success: hsl(110, 70%, 50%);
+  --danger: hsl(15, 70%, 50%);
+  --warning: hsl(55, 70%, 50%);
+  --info: hsl(170, 70%, 50%);
+
+
+  --rgb-primary: rgb(38, 157, 217);
+  --rgb-secondary: hsl(0, 0%, 63%);
+  --rgb-light: rgb(250, 250, 250);
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 1px var(--rgb-secondary);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  height: max-content;
+  padding: 15px 10px;
+  transition: 0.15s;
+}
+.primary { background-color: var(--primary); }
+.secondary { background-color: var(--secondary); }
+.success { background-color: var(--success); }
+.danger { background-color: var(--danger); }
+.warning { background-color: var(--warning); }
+.info { background-color: var(--info); }
+.btn:hover {
+  opacity: 0.75;
+}
+
+.btn.round {
+  aspect-ratio: 1 / 1;
+  border-radius: 100px;
+}
+.btn.little {
+  padding: 5px;
+}
+.btn:hover {
+  --hsl-lightness: 40%;
+}
+
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
 }
