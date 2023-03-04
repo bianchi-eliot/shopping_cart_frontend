@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { FlashMessage } from '@/types'
 
-export const useFlashMessageStore = defineStore('flash message', () => {
+export const useFlashMessageStore = defineStore('Flash Message', () => {
 
   const flashMessages = ref<FlashMessage[]>([])
 

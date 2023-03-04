@@ -22,7 +22,7 @@ const { flashMessages } = storeToRefs(flashMessageStore)
     right: 0;
 
   display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 20px;
   
   z-index: 2;

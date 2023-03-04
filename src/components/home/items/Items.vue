@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import ItemComponent from '@/components/home/items/Item.vue'
+import ItemComponent from './Item.vue'
 import type { Item } from '@/types'
 
 const items = ref<Item[] | null>(null)

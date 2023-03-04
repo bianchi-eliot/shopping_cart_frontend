@@ -11,23 +11,27 @@ const props = defineProps<{
 }>()
 
 const quantity = ref(props.cartItem.quantityAsked)
+const totalPrice = ref(props.cartItem.price * quantity.value)
 
 function subtractQuantity() {
   if (quantity.value - 1 === 0) return deleteItem()
   quantity.value--
   const price = props.cartItem.price
-  props.cartItem.totalPrice -= price
+  totalPrice.value -= price
+  cartStore.decreaseItemQuantityAsked(props.cartItem.item_id)
 }
 function addQuantity() {
   if (quantity.value === props.cartItem.totalQuantity) return
   quantity.value++
-  // Have to convert to String then to Number, otherwise it does a concatenation instead of an addition
+  /* Have to convert to String then to Number, otherwise it does a 
+  concatenation instead of an addition */
   const price:string = props.cartItem.price.toString()
-  props.cartItem.totalPrice += parseInt(price)
+  totalPrice.value += parseFloat(price)
+  cartStore.increaseItemQuantityAsked(props.cartItem.item_id)
 }
 function deleteItem() {
   const itemId = props.cartItem.item_id
-  cartStore.deleteCartItem(itemId)
+  cartStore.removeItemFromCart(itemId)
   flashMessageStore.addFlashMessage('Item deleted from Cart', 'danger')
 }
 </script>
@@ -43,7 +47,7 @@ function deleteItem() {
           <span>{{ quantity }}</span>
           <button class="btn little success add" @click="addQuantity">+</button>
         </div>
-        <p class="cart-item__price">{{ cartItem.totalPrice.toFixed(2) }} €</p>
+        <p class="cart-item__price">{{ totalPrice.toFixed(2) }} €</p>
       </div>
     </div>
     <h2 class="cart-item__title">{{ cartItem.name }}</h2>
@@ -53,7 +57,7 @@ function deleteItem() {
 <style>
 article.cart-item {
   position: relative;
-  border: 2px solid var(--rgb-secondary);
+  border: 2px solid var(--secondary);
 }
 article.cart-item > .btn.delete {
   position: absolute;

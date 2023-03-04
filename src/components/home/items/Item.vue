@@ -47,9 +47,9 @@ article.item {
   display: flex;
     flex-direction: column;
     gap: 10px;
-  background-color: var(--rgb-light);
+  background-color: var(--light);
   border-radius: 2px;
-  box-shadow: 2px 2px 4px 2px var(--rgb-secondary);
+  box-shadow: 2px 2px 4px 2px var(--secondary);
   padding-bottom: 5px;
   width: 400px;
 }
@@ -68,7 +68,7 @@ article.item {
     justify-content: center;
     align-items: center;
     gap: 30px;
-  border: 2px solid var(--rgb-secondary);
+  border: 2px solid var(--secondary);
   border-radius: 5px;
   margin: 0 5px;
   padding: 10px;

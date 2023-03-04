@@ -33,7 +33,7 @@ onMounted(async () => {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-  border: 2px solid var(--rgb-secondary);
+  border: 2px solid var(--secondary);
   padding: 20px 0;
 }
 .item-type {

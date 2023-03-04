@@ -15,8 +15,8 @@ import FilterTypeComponent from './FilterType.vue'
   display: flex;
     flex-direction: column;
     gap: 20px;
-  background-color: var(--rgb-light);
-  box-shadow: 2px 2px 3px 2px var(--rgb-secondary);
+  background-color: var(--light);
+  box-shadow: 2px 2px 3px 2px var(--secondary);
   height: max-content;
   padding: 5px 10px;
   min-width: 250px;

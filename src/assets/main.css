@@ -10,31 +10,37 @@
   --warning: hsl(55, 70%, 50%);
   --info: hsl(170, 70%, 50%);
 
+  --light: ghostwhite;
+  --dark: hsl(0, 0%, 15%);
 
-  --rgb-primary: rgb(38, 157, 217);
-  --rgb-secondary: hsl(0, 0%, 63%);
-  --rgb-light: rgb(250, 250, 250);
+  --navbar-height: 75px;
 }
 
 .btn {
-  border: none;
+  --personal: black;
+  background-color: white;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--personal); 
   border-radius: 5px;
-  box-shadow: 1px 2px 3px 1px var(--rgb-secondary);
-  color: white;
+  box-shadow: 1px 2px 3px 1px var(--secondary);
+  color: var(--personal);
   cursor: pointer;
   font-weight: bold;
   height: max-content;
   padding: 15px 10px;
+  text-align: center;
   transition: 0.15s;
 }
-.primary { background-color: var(--primary); }
-.secondary { background-color: var(--secondary); }
-.success { background-color: var(--success); }
-.danger { background-color: var(--danger); }
-.warning { background-color: var(--warning); }
-.info { background-color: var(--info); }
-.btn:hover {
-  opacity: 0.75;
+.btn.primary { --personal: var(--primary); }
+.btn.secondary {  --personal: var(--secondary); }
+.btn.success { --personal: var(--success); }
+.btn.danger {  --personal: var(--danger); }
+.btn.warning { --personal: var(--warning); }
+.btn.info { --personal: var(--info); }
+.btn:hover { 
+  background-color: var(--personal);
+  color: white;
 }
 
 .btn.round {
@@ -46,6 +52,19 @@
 }
 .btn:hover {
   --hsl-lightness: 40%;
+}
+
+.inpt {
+  border: 2px solid var(--secondary);
+  border-radius: 3px;
+  width: 0;
+  min-width: 100%;
+  padding: 10px 15px;
+  outline: transparent;
+  transition: 0.25s;
+}
+.inpt:focus {
+  border: 2px solid black;
 }
 
 a {

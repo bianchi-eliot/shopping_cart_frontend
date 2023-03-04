@@ -30,7 +30,6 @@ export type CartItem = {
 	item_id: number
 	name: string
 	price: number
-	totalPrice: number
 	quantityAsked: number
 	totalQuantity: number
 	image_url: string

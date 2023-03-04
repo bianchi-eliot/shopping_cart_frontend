@@ -24,7 +24,7 @@ defineProps<{
   position: relative;
 
   border-radius: 5px;
-  box-shadow: 1px 2px 3px 1px var(--rgb-secondary);
+  box-shadow: 1px 2px 3px 1px var(--secondary);
   font-size: 24px;
   padding: 0px 20px;
   text-align: center;
@@ -43,6 +43,13 @@ defineProps<{
   height: 5px;
   animation: flash-message-timer 3s linear 0s 1 normal forwards;
 }
+
+.primary { background-color: var(--primary); }
+.secondary {  background-color: var(--secondary); }
+.success { background-color: var(--success); }
+.danger {  background-color: var(--danger); }
+.warning { background-color: var(--warning); }
+.info { background-color: var(--info); }
 
 @keyframes flash-message-appear {
   from {

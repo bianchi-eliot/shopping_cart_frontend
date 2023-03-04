@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import CartItemComponent from '@/components/home/cart/CartItem.vue'
+import CartItemComponent from './CartItem.vue'
 import { useCartStore } from '@/stores/cart.js'
 import { storeToRefs } from 'pinia'
 
-const store = useCartStore()
-const { cartItems } = storeToRefs(store)
+const cartStore = useCartStore()
+const { cartItems } = storeToRefs(cartStore)
 </script>
 
 <template>
@@ -12,7 +12,12 @@ const { cartItems } = storeToRefs(store)
     <div class="cart-items">
       <CartItemComponent v-for="cartItem in cartItems" :key="cartItem.item_id" :cartItem="cartItem"/>
     </div>
-    <button class="btn success">Order</button>
+    <RouterLink v-if="cartItems.length !== 0" class="btn success" :to="{ name: 'order' }">
+      Order
+    </RouterLink>
+    <button v-else class="btn secondary no-cart-item">
+      No item
+    </button>
   </section>
 </template>
 
@@ -24,8 +29,8 @@ const { cartItems } = storeToRefs(store)
   display: flex;
     flex-direction: column;
     gap: 20px;
-  background-color: var(--rgb-light);
-  box-shadow: 2px 2px 3px 2px var(--rgb-secondary);
+  background-color: var(--light);
+  box-shadow: 2px 2px 3px 2px var(--secondary);
   height: max-content;
   padding: 15px;
   min-width: 250px;
